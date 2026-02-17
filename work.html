@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOHT — Our Work</title>
+  <meta name="description" content="Explore the creative portfolio of NOHT — films, commercials, music videos, and nonprofit projects produced in Atlanta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/NOHT5.png" alt="NOHT">
+      </a>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="about.html" class="nav__link">About</a>
+        <a href="work.html" class="nav__link nav__link--active">Work</a>
+        <a href="services.html" class="nav__link">Services</a>
+        <a href="community.html" class="nav__link">Community</a>
+        <a href="blog.html" class="nav__link">Blog</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </div>
+      <button class="nav__toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="nav__drawer">
+    <a href="index.html" class="nav__link">Home</a>
+    <a href="about.html" class="nav__link">About</a>
+    <a href="work.html" class="nav__link nav__link--active">Work</a>
+    <a href="services.html" class="nav__link">Services</a>
+    <a href="community.html" class="nav__link">Community</a>
+    <a href="blog.html" class="nav__link">Blog</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero reveal">
+    <div class="container container--narrow text-center">
+      <div class="divider divider--center"></div>
+      <h1>Our Work</h1>
+      <p style="margin: var(--space-md) auto 0;">A showcase of our creative portfolio — from narrative films and commercials to music videos and nonprofit campaigns. Every project is a story worth telling.</p>
+    </div>
+  </section>
+
+  <!-- Filter Bar + Project Grid -->
+  <section class="section section--white">
+    <div class="container">
+
+      <!-- Filter Bar -->
+      <div class="filter-bar text-center reveal">
+        <button class="filter-btn filter-btn--active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="film">Film</button>
+        <button class="filter-btn" data-filter="commercial">Commercial</button>
+        <button class="filter-btn" data-filter="music-video">Music Video</button>
+        <button class="filter-btn" data-filter="nonprofit">Nonprofit</button>
+      </div>
+
+      <!-- Project Grid -->
+      <div class="grid grid--3 reveal">
+
+        <!-- Project 1 — Film -->
+        <div class="card" data-category="film">
+          <div class="card__image">
+            <div class="card__image-placeholder">Project Image</div>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Film</span>
+            <h3 class="card__title">Project Title</h3>
+            <p class="card__text">A compelling narrative short exploring identity and belonging in modern Atlanta.</p>
+          </div>
+        </div>
+
+        <!-- Project 2 — Commercial -->
+        <div class="card" data-category="commercial">
+          <div class="card__image">
+            <div class="card__image-placeholder">Project Image</div>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Commercial</span>
+            <h3 class="card__title">Project Title</h3>
+            <p class="card__text">A high-energy brand spot capturing the spirit and culture of the city.</p>
+          </div>
+        </div>
+
+        <!-- Project 3 — Music Video -->
+        <div class="card" data-category="music-video">
+          <div class="card__image">
+            <div class="card__image-placeholder">Project Image</div>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Music Video</span>
+            <h3 class="card__title">Project Title</h3>
+            <p class="card__text">A visually striking music video blending choreography with cinematic storytelling.</p>
+          </div>
+        </div>
+
+        <!-- Project 4 — Film -->
+        <div class="card" data-category="film">
+          <div class="card__image">
+            <div class="card__image-placeholder">Project Image</div>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Film</span>
+            <h3 class="card__title">Project Title</h3>
+            <p class="card__text">A documentary feature highlighting the resilience of communities across the South.</p>
+          </div>
+        </div>
+
+        <!-- Project 5 — Music Video -->
+        <div class="card" data-category="music-video">
+          <div class="card__image">
+            <div class="card__image-placeholder">Project Image</div>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Music Video</span>
+            <h3 class="card__title">Project Title</h3>
+            <p class="card__text">An intimate performance piece filmed on location in downtown Atlanta.</p>
+          </div>
+        </div>
+
+        <!-- Project 6 — Nonprofit -->
+        <div class="card" data-category="nonprofit">
+          <div class="card__image">
+            <div class="card__image-placeholder">Project Image</div>
+          </div>
+          <div class="card__body">
+            <span class="card__tag">Nonprofit</span>
+            <h3 class="card__title">Project Title</h3>
+            <p class="card__text">A campaign video raising awareness and driving action for a local community initiative.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/NOHT5.png" alt="NOHT">
+          <p class="footer__tagline">Atlanta-based film production company driven by creativity and community.</p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Instagram">&#9679;</a>
+            <a href="#" class="footer__social-link" aria-label="YouTube">&#9679;</a>
+            <a href="#" class="footer__social-link" aria-label="Vimeo">&#9679;</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Navigate</h4>
+          <a href="index.html" class="footer__link">Home</a>
+          <a href="about.html" class="footer__link">About</a>
+          <a href="work.html" class="footer__link">Work</a>
+          <a href="services.html" class="footer__link">Services</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">More</h4>
+          <a href="community.html" class="footer__link">Community</a>
+          <a href="blog.html" class="footer__link">Blog</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Location</h4>
+          <p class="footer__link">Atlanta, GA</p>
+          <a href="mailto:hello@noht.com" class="footer__link">hello@noht.com</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 NOHT. All rights reserved.</span>
+        <span>Based in Atlanta, GA</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

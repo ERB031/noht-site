@@ -1,0 +1,9 @@
+[build]
+  command = "npm install && npm run build"
+  publish = "dist"
+
+# Redirect /admin to the CMS
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
