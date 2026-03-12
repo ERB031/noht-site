@@ -71,6 +71,18 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;');
 }
 
+// Extract video embed URL from a Vimeo or YouTube link
+function getVideoEmbed(url) {
+  if (!url) return null;
+  // Vimeo: https://vimeo.com/123456 or https://player.vimeo.com/video/123456
+  let match = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+  if (match) return `https://player.vimeo.com/video/${match[1]}?dnt=1`;
+  // YouTube: various formats
+  match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]+)/);
+  if (match) return `https://www.youtube.com/embed/${match[1]}`;
+  return null;
+}
+
 // Map category slug to display label
 function categoryLabel(cat) {
   const labels = {
@@ -87,14 +99,25 @@ function buildWorkPage() {
   const projects = readContent('work').sort((a, b) => (a.order || 0) - (b.order || 0));
 
   const cards = projects.map(p => {
-    const imgHtml = p.thumbnail
-      ? `<img src="${escapeHtml(p.thumbnail)}" alt="${escapeHtml(p.title)}">`
-      : `<div class="card__image-placeholder">Project Image</div>`;
+    const embedUrl = getVideoEmbed(p.video_url);
+
+    let mediaHtml;
+    if (embedUrl) {
+      mediaHtml = `<div class="card__video">
+              <iframe src="${escapeHtml(embedUrl)}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>`;
+    } else if (p.thumbnail) {
+      mediaHtml = `<div class="card__image">
+              <img src="${escapeHtml(p.thumbnail)}" alt="${escapeHtml(p.title)}">
+            </div>`;
+    } else {
+      mediaHtml = `<div class="card__image">
+              <div class="card__image-placeholder">Project Image</div>
+            </div>`;
+    }
 
     return `        <div class="card" data-category="${escapeHtml(p.category)}">
-          <div class="card__image">
-            ${imgHtml}
-          </div>
+          ${mediaHtml}
           <div class="card__body">
             <span class="card__tag">${categoryLabel(p.category)}</span>
             <h3 class="card__title">${escapeHtml(p.title)}</h3>
