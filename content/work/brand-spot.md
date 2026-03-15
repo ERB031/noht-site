@@ -1,8 +1,8 @@
 ---
-title: "Project Title"
-category: "commercial"
-description: "A high-energy brand spot capturing the spirit and culture of the city."
-thumbnail: ""
+title: Golgotha
+category: film
+description: A feature horror still in Post-Production
+thumbnail: /assets/uploads/timeline-1_01_32_47_03.jpeg
 video_url: ""
 order: 2
 ---
