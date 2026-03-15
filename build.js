@@ -19,7 +19,7 @@ function setup() {
   copyDir(path.join(__dirname, 'admin'), path.join(DIST_DIR, 'admin'));
 
   // Copy static HTML pages (ones that don't need dynamic content)
-  const staticPages = ['about.html', 'services.html', 'community.html', 'contact.html'];
+  const staticPages = ['about.html', 'contact.html'];
   staticPages.forEach(file => {
     const src = path.join(__dirname, file);
     if (fs.existsSync(src)) {
@@ -206,7 +206,7 @@ function buildHomePage() {
   let html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf-8');
 
   html = html.replace(
-    /(<div class="grid grid--3 reveal">)([\s\S]*?)(<\/div>\s*<div class="text-center reveal")/,
+    /(<div class="grid grid--3">)([\s\S]*?)(<\/div>\s*<div class="text-center")/,
     `$1\n${cards}\n      $3`
   );
 
@@ -225,13 +225,98 @@ function buildWorkPage() {
 
   // Replace everything between the grid opening and closing tags
   html = html.replace(
-    /(<!-- Project Grid -->\s*<div class="grid grid--3 reveal">)([\s\S]*?)(\s*<\/div>\s*<\/div>\s*<\/section>)/,
+    /(<!-- Project Grid -->\s*<div class="grid grid--3">)([\s\S]*?)(\s*<\/div>\s*<\/div>\s*<\/section>)/,
     `$1\n\n${cards}\n\n      $3`
   );
 
   html = injectModal(html);
   fs.writeFileSync(path.join(DIST_DIR, 'work.html'), html);
   console.log(`Built work.html with ${projects.length} projects`);
+}
+
+// Build the Community page
+function buildCommunityPage() {
+  const partners = readContent('community').sort((a, b) => (a.order || 0) - (b.order || 0));
+
+  const cards = partners.map(p => {
+    const embedUrl = getVideoEmbed(p.video_url);
+
+    let mediaHtml;
+    if (embedUrl) {
+      mediaHtml = `<div class="card__video">
+              <iframe src="${escapeHtml(embedUrl)}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>`;
+    } else if (p.thumbnail) {
+      mediaHtml = `<div class="card__image">
+              <img src="${escapeHtml(p.thumbnail)}" alt="${escapeHtml(p.title)}">
+            </div>`;
+    } else {
+      mediaHtml = `<div class="card__image">
+              <div class="card__image-placeholder">Partner Image</div>
+            </div>`;
+    }
+
+    const galleryJson = (p.gallery && p.gallery.length) ? escapeHtml(JSON.stringify(p.gallery)) : '';
+
+    return `        <div class="card card--clickable" data-category="nonprofit" data-title="${escapeHtml(p.title)}" data-description="${escapeHtml(p.description)}" data-thumbnail="${escapeHtml(p.thumbnail || '')}" data-video="${escapeHtml(p.video_url || '')}" data-gallery="${galleryJson}">
+          ${mediaHtml}
+          <div class="card__body">
+            <span class="card__tag">Nonprofit Partner</span>
+            <h3 class="card__title">${escapeHtml(p.title)}</h3>
+            <p class="card__text">${escapeHtml(p.description)}</p>
+          </div>
+        </div>`;
+  }).join('\n\n');
+
+  let html = fs.readFileSync(path.join(__dirname, 'community.html'), 'utf-8');
+
+  html = html.replace(
+    /(<div class="grid grid--3">)([\s\S]*?)(<\/div>\s*<\/div>\s*<\/section>\s*<!-- Impact Stats -->)/,
+    `$1\n\n${cards}\n\n      $3`
+  );
+
+  html = injectModal(html);
+  fs.writeFileSync(path.join(DIST_DIR, 'community.html'), html);
+  console.log(`Built community.html with ${partners.length} partners`);
+}
+
+// Build the Services page
+function buildServicesPage() {
+  const services = readContent('services').sort((a, b) => (a.order || 0) - (b.order || 0));
+
+  const cards = services.map(s => {
+    return `        <div class="service-card service-card--clickable" data-title="${escapeHtml(s.title)}" data-description="${escapeHtml(s.description)}" data-thumbnail="${escapeHtml(s.thumbnail || '')}" data-icon="${escapeHtml(s.icon || '')}">
+          <div class="service-card__icon">${s.icon || ''}</div>
+          <h3 class="service-card__title">${escapeHtml(s.title)}</h3>
+          <p class="service-card__text">${escapeHtml(s.description)}</p>
+        </div>`;
+  }).join('\n\n');
+
+  let html = fs.readFileSync(path.join(__dirname, 'services.html'), 'utf-8');
+
+  html = html.replace(
+    /(<div class="grid grid--3">)([\s\S]*?)(<\/div>\s*<\/div>\s*<\/section>\s*<!-- CTA Strip -->)/,
+    `$1\n\n${cards}\n\n      $3`
+  );
+
+  // Inject a service-specific modal
+  const serviceModalHtml = `
+  <!-- Service Modal -->
+  <div class="modal" id="service-modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+      <button class="modal__close" aria-label="Close">&times;</button>
+      <div class="modal__body" style="text-align: center; padding: var(--space-xl) var(--space-lg);">
+        <div class="service-card__icon" id="service-modal-icon" style="width: 72px; height: 72px; font-size: 2rem; margin: 0 auto var(--space-md);"></div>
+        <h3 class="modal__title" id="service-modal-title"></h3>
+        <p class="modal__description" id="service-modal-description"></p>
+      </div>
+    </div>
+  </div>`;
+
+  html = html.replace('</body>', serviceModalHtml + '\n</body>');
+  fs.writeFileSync(path.join(DIST_DIR, 'services.html'), html);
+  console.log(`Built services.html with ${services.length} services`);
 }
 
 // Build the Blog listing page and individual post pages
@@ -288,7 +373,7 @@ function buildBlogPage() {
     <a href="../contact.html" class="nav__link">Contact</a>
   </div>
 
-  <article class="page-hero reveal">
+  <article class="page-hero">
     <div class="container container--narrow text-center">
       <div class="divider divider--center"></div>
       <span class="blog-card__date">${formatDate(p.date)}</span>
@@ -362,7 +447,7 @@ function buildBlogPage() {
 
     const bodyHtml = p.body.split('\n').filter(line => line.trim()).map(line => escapeHtml(line.trim())).join('||');
 
-    return `      <div class="blog-card blog-card--clickable reveal" style="margin-bottom: var(--space-lg);" data-title="${escapeHtml(p.title)}" data-date="${escapeHtml(formatDate(p.date))}" data-body="${bodyHtml}" data-image="${escapeHtml(p.image || '')}">
+    return `      <div class="blog-card blog-card--clickable" style="margin-bottom: var(--space-lg);" data-title="${escapeHtml(p.title)}" data-date="${escapeHtml(formatDate(p.date))}" data-body="${bodyHtml}" data-image="${escapeHtml(p.image || '')}">
         <div class="blog-card__image">
           ${imgHtml}
         </div>
@@ -392,5 +477,7 @@ console.log('Building NOHT website...');
 setup();
 buildHomePage();
 buildWorkPage();
+buildCommunityPage();
+buildServicesPage();
 buildBlogPage();
 console.log('Build complete! Output in /dist');

@@ -4,10 +4,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
-  initScrollReveal();
   initPortfolioFilter();
   initProjectModal();
   initBlogModal();
+  initServiceModal();
 });
 
 /* --- Navigation --- */
@@ -44,25 +44,6 @@ function initNav() {
   }
 }
 
-/* --- Scroll Reveal --- */
-function initScrollReveal() {
-  const elements = document.querySelectorAll('.reveal');
-  if (!elements.length) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal--visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-  );
-
-  elements.forEach(el => observer.observe(el));
-}
 
 /* --- Project Modal --- */
 function initProjectModal() {
@@ -181,6 +162,48 @@ function initBlogModal() {
 
   document.addEventListener('click', function(e) {
     var card = e.target.closest('.blog-card--clickable');
+    if (card) {
+      e.preventDefault();
+      openModal(card);
+    }
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('modal--open')) {
+      closeModal();
+    }
+  });
+}
+
+/* --- Service Modal --- */
+function initServiceModal() {
+  const modal = document.getElementById('service-modal');
+  if (!modal) return;
+
+  const overlay = modal.querySelector('.modal__overlay');
+  const closeBtn = modal.querySelector('.modal__close');
+  const iconEl = document.getElementById('service-modal-icon');
+  const titleEl = document.getElementById('service-modal-title');
+  const descEl = document.getElementById('service-modal-description');
+
+  function openModal(card) {
+    iconEl.textContent = card.dataset.icon;
+    titleEl.textContent = card.dataset.title;
+    descEl.textContent = card.dataset.description;
+
+    modal.classList.add('modal--open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('modal--open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('click', function(e) {
+    var card = e.target.closest('.service-card--clickable');
     if (card) {
       e.preventDefault();
       openModal(card);

@@ -26,6 +26,36 @@ collections:
         field: { label: "Image", name: "image", widget: "image" }
       - { label: "Order", name: "order", widget: "number", default: 0, hint: "Lower numbers appear first" }
 
+  - name: "services"
+    label: "Services"
+    folder: "content/services"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Icon", name: "icon", widget: "string", hint: "Emoji or symbol for the service card" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+      - { label: "Order", name: "order", widget: "number", default: 0, hint: "Lower numbers appear first" }
+
+  - name: "community"
+    label: "Community Partners"
+    folder: "content/community"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+      - { label: "Video URL", name: "video_url", widget: "string", required: false, hint: "Paste a Vimeo or YouTube URL" }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        hint: "Additional images for this partner"
+        field: { label: "Image", name: "image", widget: "image" }
+      - { label: "Order", name: "order", widget: "number", default: 0, hint: "Lower numbers appear first" }
+
   - name: "blog"
     label: "Blog Posts"
     folder: "content/blog"
