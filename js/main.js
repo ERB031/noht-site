@@ -4,7 +4,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
-  initScrollReveal();
   initPortfolioFilter();
   initProjectModal();
   initBlogModal();
@@ -43,27 +42,6 @@ function initNav() {
       });
     });
   }
-}
-
-
-/* --- Scroll Reveal --- */
-function initScrollReveal() {
-  const elements = document.querySelectorAll('.reveal');
-  if (!elements.length) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal--visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-  );
-
-  elements.forEach(el => observer.observe(el));
 }
 
 /* --- Project Modal --- */
@@ -258,17 +236,8 @@ function initPortfolioFilter() {
       cards.forEach(card => {
         if (filter === 'all' || card.dataset.category === filter) {
           card.style.display = '';
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(10px)';
-          requestAnimationFrame(() => {
-            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          });
         } else {
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(10px)';
-          setTimeout(() => { card.style.display = 'none'; }, 300);
+          card.style.display = 'none';
         }
       });
     });
