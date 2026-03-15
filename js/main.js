@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initScrollReveal();
   initPortfolioFilter();
+  initProjectModal();
 });
 
 /* --- Navigation --- */
@@ -60,6 +61,93 @@ function initScrollReveal() {
   );
 
   elements.forEach(el => observer.observe(el));
+}
+
+/* --- Project Modal --- */
+function initProjectModal() {
+  const modal = document.getElementById('project-modal');
+  if (!modal) return;
+
+  const overlay = modal.querySelector('.modal__overlay');
+  const closeBtn = modal.querySelector('.modal__close');
+  const mediaEl = document.getElementById('modal-media');
+  const tagEl = document.getElementById('modal-tag');
+  const titleEl = document.getElementById('modal-title');
+  const descEl = document.getElementById('modal-description');
+  const galleryEl = document.getElementById('modal-gallery');
+
+  function getEmbedUrl(url) {
+    if (!url) return null;
+    var m = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    if (m) return 'https://player.vimeo.com/video/' + m[1] + '?dnt=1';
+    m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]+)/);
+    if (m) return 'https://www.youtube.com/embed/' + m[1];
+    return null;
+  }
+
+  var categoryLabels = { film: 'Film', commercial: 'Commercial', 'music-video': 'Music Video', nonprofit: 'Nonprofit' };
+
+  function openModal(card) {
+    var title = card.dataset.title;
+    var description = card.dataset.description;
+    var category = card.dataset.category;
+    var thumbnail = card.dataset.thumbnail;
+    var videoUrl = card.dataset.video;
+    var embedUrl = getEmbedUrl(videoUrl);
+
+    tagEl.textContent = categoryLabels[category] || category;
+    titleEl.textContent = title;
+    descEl.textContent = description;
+
+    if (embedUrl) {
+      mediaEl.innerHTML = '<iframe src="' + embedUrl + '" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+    } else if (thumbnail) {
+      mediaEl.innerHTML = '<img src="' + thumbnail + '" alt="' + title + '">';
+    } else {
+      mediaEl.innerHTML = '<div class="modal__media-placeholder">Project Image</div>';
+    }
+
+    // Gallery images
+    galleryEl.innerHTML = '';
+    var galleryData = card.dataset.gallery;
+    if (galleryData) {
+      try {
+        var images = JSON.parse(galleryData);
+        images.forEach(function(src) {
+          var img = document.createElement('img');
+          img.src = src;
+          img.alt = title;
+          galleryEl.appendChild(img);
+        });
+      } catch (e) {}
+    }
+
+    modal.classList.add('modal--open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('modal--open');
+    document.body.style.overflow = '';
+    mediaEl.innerHTML = '';
+    galleryEl.innerHTML = '';
+  }
+
+  document.addEventListener('click', function(e) {
+    var card = e.target.closest('.card--clickable');
+    if (card) {
+      e.preventDefault();
+      openModal(card);
+    }
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('modal--open')) {
+      closeModal();
+    }
+  });
 }
 
 /* --- Portfolio Filter --- */
