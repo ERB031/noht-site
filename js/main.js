@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initPortfolioFilter();
   initProjectModal();
+  initBlogModal();
 });
 
 /* --- Navigation --- */
@@ -135,6 +136,51 @@ function initProjectModal() {
 
   document.addEventListener('click', function(e) {
     var card = e.target.closest('.card--clickable');
+    if (card) {
+      e.preventDefault();
+      openModal(card);
+    }
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('modal--open')) {
+      closeModal();
+    }
+  });
+}
+
+/* --- Blog Modal --- */
+function initBlogModal() {
+  const modal = document.getElementById('blog-modal');
+  if (!modal) return;
+
+  const overlay = modal.querySelector('.modal__overlay');
+  const closeBtn = modal.querySelector('.modal__close');
+  const dateEl = document.getElementById('blog-modal-date');
+  const titleEl = document.getElementById('blog-modal-title');
+  const bodyEl = document.getElementById('blog-modal-body');
+
+  function openModal(card) {
+    dateEl.textContent = card.dataset.date;
+    titleEl.textContent = card.dataset.title;
+
+    var paragraphs = card.dataset.body.split('||');
+    bodyEl.innerHTML = paragraphs.map(function(p) { return '<p>' + p + '</p>'; }).join('');
+
+    modal.classList.add('modal--open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('modal--open');
+    document.body.style.overflow = '';
+    bodyEl.innerHTML = '';
+  }
+
+  document.addEventListener('click', function(e) {
+    var card = e.target.closest('.blog-card--clickable');
     if (card) {
       e.preventDefault();
       openModal(card);

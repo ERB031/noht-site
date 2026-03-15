@@ -843,6 +843,10 @@ p {
   color: var(--text-primary);
 }
 
+.blog-card--clickable {
+  cursor: pointer;
+}
+
 /* --- Blog Post Page --- */
 .blog-post__content p {
   font-size: 1.05rem;

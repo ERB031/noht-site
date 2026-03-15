@@ -172,9 +172,28 @@ const MODAL_HTML = `
     </div>
   </div>`;
 
+// Blog modal HTML
+const BLOG_MODAL_HTML = `
+  <!-- Blog Post Modal -->
+  <div class="modal" id="blog-modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__content">
+      <button class="modal__close" aria-label="Close">&times;</button>
+      <div class="modal__body">
+        <span class="blog-card__date" id="blog-modal-date"></span>
+        <h3 class="modal__title" id="blog-modal-title"></h3>
+        <div class="blog-post__content" id="blog-modal-body"></div>
+      </div>
+    </div>
+  </div>`;
+
 // Inject modal HTML into a page string
 function injectModal(html) {
   return html.replace('</body>', MODAL_HTML + '\n</body>');
+}
+
+function injectBlogModal(html) {
+  return html.replace('</body>', BLOG_MODAL_HTML + '\n</body>');
 }
 
 // Build the Home page with featured work from content
@@ -341,7 +360,9 @@ function buildBlogPage() {
       ? `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}">`
       : `<div class="blog-card__image-placeholder"></div>`;
 
-    return `      <a href="blog/${p.slug}.html" class="blog-card reveal" style="margin-bottom: var(--space-lg);">
+    const bodyHtml = p.body.split('\n').filter(line => line.trim()).map(line => escapeHtml(line.trim())).join('||');
+
+    return `      <div class="blog-card blog-card--clickable reveal" style="margin-bottom: var(--space-lg);" data-title="${escapeHtml(p.title)}" data-date="${escapeHtml(formatDate(p.date))}" data-body="${bodyHtml}" data-image="${escapeHtml(p.image || '')}">
         <div class="blog-card__image">
           ${imgHtml}
         </div>
@@ -351,7 +372,7 @@ function buildBlogPage() {
           <p class="blog-card__excerpt">${escapeHtml(p.excerpt)}</p>
           <span class="blog-card__link">Read More &rarr;</span>
         </div>
-      </a>`;
+      </div>`;
   }).join('\n\n');
 
   let html = fs.readFileSync(path.join(__dirname, 'blog.html'), 'utf-8');
@@ -361,6 +382,7 @@ function buildBlogPage() {
     `$1\n\n${cards}\n\n    $3`
   );
 
+  html = injectBlogModal(html);
   fs.writeFileSync(path.join(DIST_DIR, 'blog.html'), html);
   console.log(`Built blog.html with ${posts.length} posts (+ ${posts.length} individual pages)`);
 }
