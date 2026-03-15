@@ -4,56 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NOHT — Content Manager</title>
-  <style>
-    body { margin: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #FAF8F5; }
-    .gate { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
-    .gate__box { text-align: center; max-width: 320px; width: 100%; padding: 0 1.5rem; }
-    .gate__title { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #9A9490; margin-bottom: 1.5rem; }
-    .gate__input { width: 100%; padding: 0.875rem 1rem; font-family: inherit; font-size: 0.95rem; color: #2C2C2C; background: #fff; border: 1.5px solid #E8E2DC; border-radius: 8px; outline: none; text-align: center; transition: border-color 0.2s; }
-    .gate__input:focus { border-color: #C4A882; }
-    .gate__input--error { border-color: #c0392b; animation: shake 0.3s; }
-    .gate__btn { margin-top: 1rem; width: 100%; padding: 0.875rem; font-family: inherit; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #FAF8F5; background: #3D3D3D; border: none; border-radius: 4px; cursor: pointer; transition: background 0.2s; }
-    .gate__btn:hover { background: #2C2C2C; }
-    @keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
-  </style>
 </head>
 <body>
-  <div class="gate" id="gate">
-    <div class="gate__box">
-      <div class="gate__title">NOHT Content Manager</div>
-      <form id="gate-form">
-        <input type="password" class="gate__input" id="gate-pw" placeholder="Enter password" autocomplete="off" autofocus>
-        <button type="submit" class="gate__btn">Enter</button>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    function simpleHash(str) {
-      var h = 0x811c9dc5;
-      for (var i = 0; i < str.length; i++) {
-        h ^= str.charCodeAt(i);
-        h = Math.imul(h, 0x01000193);
-      }
-      return (h >>> 0).toString(16).padStart(8, '0');
-    }
-    var EXPECTED = 'f98e5a59';
-
-    document.getElementById('gate-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var pw = document.getElementById('gate-pw').value;
-      if (simpleHash(pw) === EXPECTED) {
-        document.getElementById('gate').remove();
-        var s = document.createElement('script');
-        s.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
-        document.body.appendChild(s);
-      } else {
-        var input = document.getElementById('gate-pw');
-        input.classList.add('gate__input--error');
-        input.value = '';
-        setTimeout(function() { input.classList.remove('gate__input--error'); }, 400);
-      }
-    });
-  </script>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>
