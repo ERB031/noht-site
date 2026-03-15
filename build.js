@@ -162,12 +162,16 @@ const MODAL_HTML = `
     <div class="modal__overlay"></div>
     <div class="modal__content">
       <button class="modal__close" aria-label="Close">&times;</button>
-      <div class="modal__media" id="modal-media"></div>
+      <div class="modal__carousel">
+        <div class="modal__media" id="modal-media"></div>
+        <button class="modal__arrow modal__arrow--prev" id="modal-prev" aria-label="Previous">&#10094;</button>
+        <button class="modal__arrow modal__arrow--next" id="modal-next" aria-label="Next">&#10095;</button>
+        <div class="modal__counter" id="modal-counter"></div>
+      </div>
       <div class="modal__body">
         <span class="modal__tag" id="modal-tag"></span>
         <h3 class="modal__title" id="modal-title"></h3>
         <p class="modal__description" id="modal-description"></p>
-        <div class="modal__gallery" id="modal-gallery"></div>
       </div>
     </div>
   </div>`;
