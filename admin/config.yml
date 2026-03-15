@@ -18,6 +18,12 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
       - { label: "Video URL", name: "video_url", widget: "string", required: false, hint: "Paste a Vimeo or YouTube URL (e.g. https://vimeo.com/123456 or https://youtube.com/watch?v=abc)" }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        hint: "Additional images for this project"
+        field: { label: "Image", name: "image", widget: "image" }
       - { label: "Order", name: "order", widget: "number", default: 0, hint: "Lower numbers appear first" }
 
   - name: "blog"
