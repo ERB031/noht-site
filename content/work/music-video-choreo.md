@@ -8,6 +8,6 @@ gallery:
   - /assets/uploads/still-2026-03-16-132032_1.1.3.jpg
   - /assets/uploads/still-2026-03-16-132032_1.2.1.jpg
   - /assets/uploads/still-2026-03-16-132032_1.4.1.jpg
-  - /assets/uploads/still-2026-03-16-132032_1.1.3.jpg
+  - /assets/uploads/still-2026-03-16-132032_1.1.1.jpg
 order: 1
 ---
