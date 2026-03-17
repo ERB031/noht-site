@@ -1,5 +1,5 @@
 /* ============================================
-   NOHT — Shared JavaScript
+   NØHT — Shared JavaScript
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
