@@ -7,5 +7,5 @@ gallery:
   - /assets/uploads/frame_04.png
   - /assets/uploads/frame_02.png
   - /assets/uploads/frame_03.png
-order: 0
+order: 4
 ---
