@@ -2,6 +2,7 @@ backend:
   name: github
   repo: ERB031/noht-site
   branch: main
+  site_domain: noht.studio
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"

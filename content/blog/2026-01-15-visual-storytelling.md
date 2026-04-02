@@ -1,14 +1,14 @@
 ---
 title: The Art of Visual Storytelling
 date: 2026-01-15
-excerpt: What does it mean to tell a story through visuals? We explore NOHT's
+excerpt: What does it mean to tell a story through visuals? We explore NØHT's
   creative philosophy — how we approach every frame with intention, emotion, and
   authenticity.
 image: ""
 ---
 There's a moment that happens on every great set. The camera is locked. The light is right. The subject — whether a person, a place, or a fleeting in-between — is exactly where it needs to be. And before anyone calls action, there's a collective breath. A recognition that what's about to happen in front of the lens matters.
 
-That moment is what NOHT Film Productions is built around.
+That moment is what NØHT Film Productions is built around.
 
 We didn't start this company to make content. We started it to make meaning. And the difference between those two things is everything.
 
@@ -16,7 +16,7 @@ We didn't start this company to make content. We started it to make meaning. And
 
 Every shot is a choice. Angle, light, distance, movement — each decision carries weight, even when the audience never consciously registers it. Especially then, in fact. The most powerful visual storytelling works below the level of analysis. It makes you feel something before you understand why.
 
-At NOHT, we approach every frame as an argument. What is this image saying? What does it want the viewer to carry with them when it cuts away? A wide shot of an empty street says something different than a close-up of the same pavement. Both are "just" a street. Neither is just anything.
+At NØHT, we approach every frame as an argument. What is this image saying? What does it want the viewer to carry with them when it cuts away? A wide shot of an empty street says something different than a close-up of the same pavement. Both are "just" a street. Neither is just anything.
 
 This is what we mean when we say we shoot with intention: not that every shot is labored over to the point of paralysis, but that every shot has a reason to exist. Form follows feeling. Always.
 
@@ -34,7 +34,7 @@ Emotion is not decoration. It is the entire point.
 
 "Authentic" has become a well-worn word in creative circles, and fair enough — it's been overused into near-meaninglessness. So let's be specific about what we mean when we use it.
 
-Authenticity, in NOHT's vocabulary, means refusing to tell a story that isn't true to the people at its center. It means taking the time to understand a subject before presuming to represent it. It means being willing to throw out the planned shot when something realer presents itself. It means the camera serves the story, not the other way around.
+Authenticity, in NØHT's vocabulary, means refusing to tell a story that isn't true to the people at its center. It means taking the time to understand a subject before presuming to represent it. It means being willing to throw out the planned shot when something realer presents itself. It means the camera serves the story, not the other way around.
 
 It also means knowing the difference between a beautiful image and a true one — and understanding that the best visual stories find a way to be both.
 
@@ -44,7 +44,7 @@ We love those moments. We look for them. We build around them.
 
 **Every Story Has a Visual Language**
 
-One of the first conversations on any NOHT project isn't about shot lists or locations. It's about language. What does this particular story need to look like? What palette, what rhythm, what visual grammar serves it best?
+One of the first conversations on any NØHT project isn't about shot lists or locations. It's about language. What does this particular story need to look like? What palette, what rhythm, what visual grammar serves it best?
 
 A documentary about a craftsperson might call for patient, close observation — the camera as a respectful witness to slow, skilled work. A brand film for a kinetic company might demand movement, compression, the visual shorthand of energy. A personal narrative might need long, unbroken takes that honor the vulnerability of someone speaking their truth.
 
@@ -68,10 +68,10 @@ Which means the meaningful barriers matter more than ever.
 
 The barrier between something made and something felt. Between footage and story. Between content that fills a feed and work that lives in someone's memory long after the screen goes dark.
 
-NOHT's creative philosophy is, at its core, an answer to that challenge. We believe that in a world drowning in images, the ones that cut through are the ones made with genuine care — for the subject, for the audience, for the story itself.
+NØHT's creative philosophy is, at its core, an answer to that challenge. We believe that in a world drowning in images, the ones that cut through are the ones made with genuine care — for the subject, for the audience, for the story itself.
 
 Every frame with intention. Every edit with purpose. Every story told as if it deserves to be remembered.
 
 Because it does.
 
-*NOHT Film Productions is a creative film and production company committed to storytelling that moves people. If you have a story worth telling, we'd love to talk.*
+*NØHT Film Productions is a creative film and production company committed to storytelling that moves people. If you have a story worth telling, we'd love to talk.*

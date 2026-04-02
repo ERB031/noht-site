@@ -162,12 +162,16 @@ const MODAL_HTML = `
     <div class="modal__overlay"></div>
     <div class="modal__content">
       <button class="modal__close" aria-label="Close">&times;</button>
-      <div class="modal__media" id="modal-media"></div>
+      <div class="modal__carousel">
+        <div class="modal__media" id="modal-media"></div>
+        <button class="modal__arrow modal__arrow--prev" id="modal-prev" aria-label="Previous">&#10094;</button>
+        <button class="modal__arrow modal__arrow--next" id="modal-next" aria-label="Next">&#10095;</button>
+        <div class="modal__counter" id="modal-counter"></div>
+      </div>
       <div class="modal__body">
         <span class="modal__tag" id="modal-tag"></span>
         <h3 class="modal__title" id="modal-title"></h3>
         <p class="modal__description" id="modal-description"></p>
-        <div class="modal__gallery" id="modal-gallery"></div>
       </div>
     </div>
   </div>`;
@@ -332,7 +336,7 @@ function buildBlogPage() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${escapeHtml(p.title)} — NOHT</title>
+  <title>${escapeHtml(p.title)} — NØHT</title>
   <meta name="description" content="${escapeHtml(p.excerpt)}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -344,7 +348,7 @@ function buildBlogPage() {
   <nav class="nav">
     <div class="nav__inner">
       <a href="../index.html" class="nav__logo">
-        <img src="../assets/NOHT5.png" alt="NOHT">
+        <img src="../assets/NOHT5.png" alt="NØHT">
       </a>
       <div class="nav__links">
         <a href="../index.html" class="nav__link">Home</a>
@@ -397,7 +401,7 @@ function buildBlogPage() {
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <img src="../assets/NOHT5.png" alt="NOHT">
+          <img src="../assets/NOHT5.png" alt="NØHT">
           <p class="footer__tagline">Atlanta-based film production company driven by creativity and community.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Instagram">&#9679;</a>
@@ -425,7 +429,7 @@ function buildBlogPage() {
         </div>
       </div>
       <div class="footer__bottom">
-        <span>&copy; 2026 NOHT. All rights reserved.</span>
+        <span>&copy; 2026 NØHT. All rights reserved.</span>
         <a href="../admin/" class="footer__admin-link">Admin</a>
         <span>Based in Atlanta, GA</span>
       </div>
@@ -473,7 +477,7 @@ function buildBlogPage() {
 }
 
 // Run the build
-console.log('Building NOHT website...');
+console.log('Building NØHT website...');
 setup();
 buildHomePage();
 buildWorkPage();
