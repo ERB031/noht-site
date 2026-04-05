@@ -1,7 +1,7 @@
 ---
 title: Emory Nursing
-description: Produced a documentary series highlighting at-risk youth programs
-  and mentorship opportunities across Atlanta.
+description: Produced content that brought attention to Emory Nursing Programs
+  work with at-risk individuals and those suffering from addiction.
 thumbnail: ""
 video_url: ""
 gallery: []
