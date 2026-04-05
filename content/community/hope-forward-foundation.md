@@ -1,7 +1,7 @@
 ---
-title: Creating Connected Communities
-description: Partnered on a fundraising campaign video that helped raise
-  awareness and donations for housing assistance.
+title: Repair the World Atlanta
+description: Partnered on a campaign video that promoted the great work of
+  Tikkun olam and highlighted their annual MLK day seder.
 thumbnail: ""
 video_url: ""
 gallery: []
