@@ -1,7 +1,8 @@
 ---
 title: The Elizabeth Foundation
-description: Created promotional content and short films to support local arts
-  education and cultural enrichment programs.
+description: Created content that brings attention to the unhoused population of
+  Atlanta and advocates for help for those struggling, providing dignity and
+  respect.
 thumbnail: ""
 video_url: ""
 gallery: []
