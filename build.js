@@ -425,7 +425,7 @@ function buildBlogPage() {
         <div>
           <h4 class="footer__heading">Location</h4>
           <p class="footer__link">Atlanta, GA</p>
-          <a href="mailto:hello@noht.com" class="footer__link">hello@noht.com</a>
+          <a href="mailto:production@noht.studio" class="footer__link">production@noht.studio</a>
         </div>
       </div>
       <div class="footer__bottom">
