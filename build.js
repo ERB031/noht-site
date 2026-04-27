@@ -323,6 +323,40 @@ function buildServicesPage() {
   console.log(`Built services.html with ${services.length} services`);
 }
 
+// Build the Graphic Design page
+function buildGraphicDesignPage() {
+  const projects = readContent('graphic-design').sort((a, b) => (a.order || 0) - (b.order || 0));
+
+  const cards = projects.map(p => {
+    const cover = p.cover
+      ? `<div class="card__image"><img src="${escapeHtml(p.cover)}" alt="${escapeHtml(p.title)}"></div>`
+      : `<div class="card__image"><div class="card__image-placeholder">Project Image</div></div>`;
+
+    const galleryJson = (p.images && p.images.length) ? escapeHtml(JSON.stringify(p.images)) : '';
+    const meta = [p.client, p.year].filter(Boolean).join(' \u00b7 ');
+
+    return `        <div class="card card--clickable" data-category="graphic-design" data-title="${escapeHtml(p.title)}" data-description="${escapeHtml(p.description)}" data-thumbnail="${escapeHtml(p.cover || '')}" data-video="" data-gallery="${galleryJson}">
+          ${cover}
+          <div class="card__body">
+            <span class="card__tag">Graphic Design${meta ? ' \u2014 ' + escapeHtml(meta) : ''}</span>
+            <h3 class="card__title">${escapeHtml(p.title)}</h3>
+            <p class="card__text">${escapeHtml(p.description)}</p>
+          </div>
+        </div>`;
+  }).join('\n\n');
+
+  let html = fs.readFileSync(path.join(__dirname, 'graphic-design.html'), 'utf-8');
+
+  html = html.replace(
+    /(<!-- Graphic Design Grid -->\s*<div class="grid grid--3">)([\s\S]*?)(<\/div>\s*<\/div>\s*<\/section>)/,
+    `$1\n\n${cards}\n\n      $3`
+  );
+
+  html = injectModal(html);
+  fs.writeFileSync(path.join(DIST_DIR, 'graphic-design.html'), html);
+  console.log(`Built graphic-design.html with ${projects.length} projects`);
+}
+
 // Build the Blog listing page and individual post pages
 function buildBlogPage() {
   const posts = readContent('blog').sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -354,6 +388,7 @@ function buildBlogPage() {
         <a href="../index.html" class="nav__link">Home</a>
         <a href="../about.html" class="nav__link">About</a>
         <a href="../work.html" class="nav__link">Work</a>
+        <a href="../graphic-design.html" class="nav__link">Graphic Design</a>
         <a href="../services.html" class="nav__link">Services</a>
         <a href="../community.html" class="nav__link">Community</a>
         <a href="../blog.html" class="nav__link nav__link--active">Blog</a>
@@ -371,6 +406,7 @@ function buildBlogPage() {
     <a href="../index.html" class="nav__link">Home</a>
     <a href="../about.html" class="nav__link">About</a>
     <a href="../work.html" class="nav__link">Work</a>
+    <a href="../graphic-design.html" class="nav__link">Graphic Design</a>
     <a href="../services.html" class="nav__link">Services</a>
     <a href="../community.html" class="nav__link">Community</a>
     <a href="../blog.html" class="nav__link nav__link--active">Blog</a>
@@ -414,6 +450,7 @@ function buildBlogPage() {
           <a href="../index.html" class="footer__link">Home</a>
           <a href="../about.html" class="footer__link">About</a>
           <a href="../work.html" class="footer__link">Work</a>
+          <a href="../graphic-design.html" class="footer__link">Graphic Design</a>
           <a href="../services.html" class="footer__link">Services</a>
         </div>
         <div>
@@ -481,6 +518,7 @@ console.log('Building NØHT website...');
 setup();
 buildHomePage();
 buildWorkPage();
+buildGraphicDesignPage();
 buildCommunityPage();
 buildServicesPage();
 buildBlogPage();
