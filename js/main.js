@@ -88,7 +88,7 @@ function initProjectModal() {
     return null;
   }
 
-  var categoryLabels = { film: 'Film', commercial: 'Commercial', 'music-video': 'Music Video', nonprofit: 'Nonprofit' };
+  var categoryLabels = { film: 'Film', commercial: 'Commercial', 'music-video': 'Music Video', nonprofit: 'Nonprofit', 'graphic-design': 'Graphic Design' };
 
   function showSlide(index) {
     currentSlide = index;
