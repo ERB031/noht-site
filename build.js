@@ -445,7 +445,7 @@ function buildBlogPage() {
       <div class="footer__grid">
         <div class="footer__brand">
           <img src="../assets/NOHT5.png" alt="NØHT">
-          <p class="footer__tagline">Atlanta-based film production company driven by creativity and community.</p>
+          <p class="footer__tagline">Film production company driven by creativity and community.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Instagram">&#9679;</a>
             <a href="#" class="footer__social-link" aria-label="YouTube">&#9679;</a>
