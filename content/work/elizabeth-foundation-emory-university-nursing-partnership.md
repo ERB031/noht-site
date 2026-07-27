@@ -10,5 +10,5 @@ description: "The Elizabeth Foundation serves people experiencing homelessness
   university and a nonprofit, and what's possible when you invest in people and
   your community."
 video_url: https://youtu.be/Eo5cmL-QGvU
-order: 0
+order: 1
 ---
