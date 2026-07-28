@@ -1,8 +1,9 @@
 ---
 title: Chasers
 category: film
-description: A woman haunted by the horrors she had to do in order to survive
-  has to face them head on.
+description: We worked with a great team to make a short film in the world of
+  The Last of Us.  A woman haunted by the horrors she had to do in order to
+  survive has to face them head on.
 thumbnail: /assets/uploads/still-2026-03-14-205914_1.7.1.jpg
 video_url: ""
 gallery:
