@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NØHT — Graphic Design</title>
+  <meta name="description" content="Brand identity, campaign collateral, and graphic design work by NØHT.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <img src="assets/NOHT5.png" alt="NØHT">
+      </a>
+      <div class="nav__links">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="about.html" class="nav__link">About</a>
+        <div class="nav__dropdown">
+          <a href="work.html" class="nav__link nav__link--active">Work</a>
+          <div class="nav__dropdown-menu">
+            <a href="work.html" class="nav__link">Film &amp; Video</a>
+            <a href="graphic-design.html" class="nav__link nav__link--active">Graphic Design</a>
+          </div>
+        </div>
+        <a href="services.html" class="nav__link">Services</a>
+        <a href="community.html" class="nav__link">Community</a>
+        <a href="blog.html" class="nav__link">Blog</a>
+        <a href="contact.html" class="nav__link">Contact</a>
+      </div>
+      <button class="nav__toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="nav__drawer">
+    <a href="index.html" class="nav__link">Home</a>
+    <a href="about.html" class="nav__link">About</a>
+    <div class="nav__drawer-group">
+      <a href="work.html" class="nav__link">Work — Film &amp; Video</a>
+      <a href="graphic-design.html" class="nav__sublink nav__link--active">Graphic Design</a>
+    </div>
+    <a href="services.html" class="nav__link">Services</a>
+    <a href="community.html" class="nav__link">Community</a>
+    <a href="blog.html" class="nav__link">Blog</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container container--narrow text-center">
+      <div class="divider divider--center"></div>
+      <h1>Graphic Design</h1>
+      <p style="margin: var(--space-md) auto 0;">Brand identity, campaign collateral, and visual systems built for studios, artists, and community partners.</p>
+    </div>
+  </section>
+
+  <!-- Project Grid -->
+  <section class="section section--white">
+    <div class="container">
+      <!-- Graphic Design Grid -->
+      <div class="grid grid--3">
+        <div class="card">
+          <div class="card__image"><div class="card__image-placeholder">Upload via /admin/</div></div>
+          <div class="card__body">
+            <span class="card__tag">Graphic Design</span>
+            <h3 class="card__title">Your first project</h3>
+            <p class="card__text">Add graphic design entries from the CMS at /admin/ to populate this page.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/NOHT5.png" alt="NØHT">
+          <p class="footer__tagline">Film production company driven by creativity and community.</p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Instagram">&#9679;</a>
+            <a href="#" class="footer__social-link" aria-label="YouTube">&#9679;</a>
+            <a href="#" class="footer__social-link" aria-label="Vimeo">&#9679;</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Navigate</h4>
+          <a href="index.html" class="footer__link">Home</a>
+          <a href="about.html" class="footer__link">About</a>
+          <a href="work.html" class="footer__link">Work</a>
+          <a href="graphic-design.html" class="footer__link">Graphic Design</a>
+          <a href="services.html" class="footer__link">Services</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">More</h4>
+          <a href="community.html" class="footer__link">Community</a>
+          <a href="blog.html" class="footer__link">Blog</a>
+          <a href="contact.html" class="footer__link">Contact</a>
+        </div>
+        <div>
+          <h4 class="footer__heading">Location</h4>
+          <p class="footer__link">Atlanta, GA</p>
+          <a href="mailto:production@noht.studio" class="footer__link">production@noht.studio</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2026 NØHT. All rights reserved.</span>
+        <a href="admin/" class="footer__admin-link">Admin</a>
+        <span>Based in Atlanta, GA</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

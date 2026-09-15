@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services — NOHT</title>
-  <meta name="description" content="NOHT offers full-service film and creative production — from narrative films and commercials to music videos, post-production, and community-driven projects.">
+  <title>Services — NØHT</title>
+  <meta name="description" content="NØHT offers full-service film and creative production — from narrative films and commercials to music videos, post-production, and community-driven projects.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,12 +18,18 @@
   <nav class="nav">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo">
-        <img src="assets/NOHT5.png" alt="NOHT">
+        <img src="assets/NOHT5.png" alt="NØHT">
       </a>
       <div class="nav__links">
         <a href="index.html" class="nav__link">Home</a>
         <a href="about.html" class="nav__link">About</a>
-        <a href="work.html" class="nav__link">Work</a>
+        <div class="nav__dropdown">
+          <a href="work.html" class="nav__link">Work</a>
+          <div class="nav__dropdown-menu">
+            <a href="work.html" class="nav__link">Film &amp; Video</a>
+            <a href="graphic-design.html" class="nav__link">Graphic Design</a>
+          </div>
+        </div>
         <a href="services.html" class="nav__link nav__link--active">Services</a>
         <a href="community.html" class="nav__link">Community</a>
         <a href="blog.html" class="nav__link">Blog</a>
@@ -41,7 +47,10 @@
   <div class="nav__drawer">
     <a href="index.html" class="nav__link">Home</a>
     <a href="about.html" class="nav__link">About</a>
-    <a href="work.html" class="nav__link">Work</a>
+    <div class="nav__drawer-group">
+      <a href="work.html" class="nav__link">Work — Film &amp; Video</a>
+      <a href="graphic-design.html" class="nav__sublink">Graphic Design</a>
+    </div>
     <a href="services.html" class="nav__link nav__link--active">Services</a>
     <a href="community.html" class="nav__link">Community</a>
     <a href="blog.html" class="nav__link">Blog</a>
@@ -49,7 +58,7 @@
   </div>
 
   <!-- Page Hero -->
-  <section class="page-hero reveal">
+  <section class="page-hero">
     <h1>Our Services</h1>
     <p>Full-service production capabilities from concept to final cut — everything you need to bring your story to the screen.</p>
   </section>
@@ -57,7 +66,7 @@
   <!-- Services Grid -->
   <section class="section section--white">
     <div class="container">
-      <div class="grid grid--3 reveal">
+      <div class="grid grid--3">
         <div class="service-card">
           <div class="service-card__icon">&#127909;</div>
           <h3 class="service-card__title">Film Production</h3>
@@ -88,12 +97,17 @@
           <h3 class="service-card__title">Nonprofit &amp; Community</h3>
           <p class="service-card__text">We believe in using our craft for good. We offer pro bono and reduced-rate production services for nonprofits, community organizations, and causes that drive positive change.</p>
         </div>
+        <div class="service-card">
+          <div class="service-card__icon">&#127756;</div>
+          <h3 class="service-card__title">Graphic Design &amp; Brand Identity</h3>
+          <p class="service-card__text">Logos, brand systems, typography, packaging, posters, and campaign collateral — we build cohesive visual identities that translate seamlessly from screen to print and beyond.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CTA Strip -->
-  <section class="cta-strip reveal">
+  <section class="cta-strip">
     <h2>Ready to bring your vision to life?</h2>
     <p>Tell us about your project and let's create something remarkable together.</p>
     <a href="contact.html" class="btn btn--gold">Get in Touch</a>
@@ -104,8 +118,8 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <img src="assets/NOHT5.png" alt="NOHT">
-          <p class="footer__tagline">Atlanta-based film production company driven by creativity and community.</p>
+          <img src="assets/NOHT5.png" alt="NØHT">
+          <p class="footer__tagline">Film production company driven by creativity and community.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Instagram">&#9679;</a>
             <a href="#" class="footer__social-link" aria-label="YouTube">&#9679;</a>
@@ -117,6 +131,7 @@
           <a href="index.html" class="footer__link">Home</a>
           <a href="about.html" class="footer__link">About</a>
           <a href="work.html" class="footer__link">Work</a>
+          <a href="graphic-design.html" class="footer__link">Graphic Design</a>
           <a href="services.html" class="footer__link">Services</a>
         </div>
         <div>
@@ -128,11 +143,12 @@
         <div>
           <h4 class="footer__heading">Location</h4>
           <p class="footer__link">Atlanta, GA</p>
-          <a href="mailto:hello@noht.com" class="footer__link">hello@noht.com</a>
+          <a href="mailto:production@noht.studio" class="footer__link">production@noht.studio</a>
         </div>
       </div>
       <div class="footer__bottom">
-        <span>&copy; 2026 NOHT. All rights reserved.</span>
+        <span>&copy; 2026 NØHT. All rights reserved.</span>
+        <a href="admin/" class="footer__admin-link">Admin</a>
         <span>Based in Atlanta, GA</span>
       </div>
     </div>
