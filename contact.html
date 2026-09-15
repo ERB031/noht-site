@@ -58,18 +58,22 @@
       <div class="contact-grid reveal">
 
         <!-- Left: Contact Form -->
-        <form class="contact-form" name="contact" method="POST" data-netlify="true">
+        <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hidden" hidden>
+            <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+          </p>
           <div class="form__group">
-            <label class="form__label">Name</label>
-            <input type="text" class="form__input" placeholder="Your name">
+            <label class="form__label" for="name">Name</label>
+            <input id="name" name="name" type="text" class="form__input" placeholder="Your name" required>
           </div>
           <div class="form__group">
-            <label class="form__label">Email</label>
-            <input type="email" class="form__input" placeholder="your@email.com">
+            <label class="form__label" for="email">Email</label>
+            <input id="email" name="email" type="email" class="form__input" placeholder="your@email.com" required>
           </div>
           <div class="form__group">
-            <label class="form__label">Subject</label>
-            <select class="form__select">
+            <label class="form__label" for="subject">Subject</label>
+            <select id="subject" name="subject" class="form__select">
               <option>General Inquiry</option>
               <option>Project Inquiry</option>
               <option>Nonprofit Partnership</option>
@@ -77,8 +81,8 @@
             </select>
           </div>
           <div class="form__group">
-            <label class="form__label">Message</label>
-            <textarea class="form__textarea" placeholder="Tell us about your project or how we can help..."></textarea>
+            <label class="form__label" for="message">Message</label>
+            <textarea id="message" name="message" class="form__textarea" placeholder="Tell us about your project or how we can help..." required></textarea>
           </div>
           <button type="submit" class="btn btn--primary">Send Message</button>
         </form>
@@ -90,14 +94,14 @@
             <div class="contact-info-item__icon">&#9993;</div>
             <div class="contact-info-item__text">
               <div class="contact-info-item__label">Email</div>
-              hello@noht.com
+              production@noht.studio
             </div>
           </div>
           <div class="contact-info-item">
             <div class="contact-info-item__icon">&#9742;</div>
             <div class="contact-info-item__text">
               <div class="contact-info-item__label">Phone</div>
-              (404) 555-NOHT
+              +1(678)-774-6901
             </div>
           </div>
           <div class="contact-info-item">
@@ -148,7 +152,7 @@
         <div>
           <h4 class="footer__heading">Location</h4>
           <p class="footer__link">Atlanta, GA</p>
-          <a href="mailto:hello@noht.com" class="footer__link">hello@noht.com</a>
+          <a href="mailto:production@noht.studio" class="footer__link">production@noht.studio</a>
         </div>
       </div>
       <div class="footer__bottom">
